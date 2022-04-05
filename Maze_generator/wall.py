@@ -7,3 +7,6 @@ class Wall:
 
     def make_nonexistent(self):
         self._does_exist = False
+
+    def declare_existence(self):
+        self._does_exist = True
