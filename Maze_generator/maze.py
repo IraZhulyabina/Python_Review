@@ -26,7 +26,7 @@ class Maze:
         for dist in distances:
             x_coord = cur_x_coord + dist[0]
             y_coord = cur_y_coord + dist[1]
-            if 0 < x_coord < self._width and 0 < y_coord < self._height:
+            if 0 < x_coord < self._height and 0 < y_coord < self._width:
                 neighbours.append(self._maze[x_coord][y_coord])
         return neighbours
 
@@ -139,7 +139,7 @@ class Maze:
             for j in range(self._width):
                 if j % 2:
                     if self._maze[i + 1][j].does_exist() and self._maze[i][j].is_way():
-                        print("\033[4m\u2022\033[0m", end='', file=file)
+                        print(u"\033[4m\u2022\033[0m", end='', file=file)
                     elif self._maze[i + 1][j].does_exist():
                         print('_', end='', file=file)
                     elif self._maze[i][j].is_way():
@@ -160,11 +160,20 @@ class Maze:
             self._width = len(lines[0])
             self.clear_maze()
             for ind, line in enumerate(lines):
+                underlined_points = 0
+                skip = 9
                 if ind:
                     for idx, char in enumerate(line):
-                        if not idx % 2:
+                        if char == '' and skip == 9:
+                            underlined_points += 1
+                        if skip != 9 or char == '':
+                            skip -= 1
+                            if skip == 0:
+                                skip = 9
+                            continue
+                        if not (idx - 8 * underlined_points) % 2:
                             if char == ' ' or char == '\u2022':
-                                self._maze[ind * 2 - 1][idx].make_nonexistent()
+                                self._maze[ind * 2 - 1][idx - 8 * underlined_points].make_nonexistent()
                         else:
                             if char == ' ':
-                                self._maze[ind * 2][idx].make_nonexistent()
+                                self._maze[ind * 2][idx - 8 * underlined_points].make_nonexistent()
