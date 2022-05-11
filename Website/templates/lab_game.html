@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Labyrinth</title>
+    <link rel="stylesheet" href="../static/lab_game.css">
+<meta http-equiv="refresh" content="0.5; URL=/Labyrinth/game">
+</head>
+<body>
+<div class="vertical-center">
+<pre>
+<h1>___ ___ ___ ___ ___ ___ ___ ___ ___ ___ ___ ___ ___ ___ ___ ___ ___ ___ ___ ___ </h1>
+<h1>  @ |       |   |        ___    |       |       |           |___ ___     ___ ___|</h1>
+<h1>|___ ___|   |___ ___|___    |___ ___|   |   |   |___|   |___ ___    |___ ___    |</h1>
+<h1>|    ___|___ ___    |    ___|    ___|___ ___|___    |   |___ ___ ___ ___ ___    |</h1>
+<h1>|    ___    |    ___|___    |        ___ ___    |   |    ___    |___ ___    |   |</h1>
+<h1>|   |   |___ ___|    ___ ___|   |___    |    ___|   |___ ___|___        |    ___|</h1>
+<h1>|   |       |    ___ ___    |___ ___|   |___    |___ ___ ___    |___|   |___    |</h1>
+<h1>|   |   |___|   |    ___ ___|    ___ ___|    ___|    ___    |   |    ___|   |   |</h1>
+<h1>|   |    ___ ___|___    |    ___|    ___ ___|   |   |   |   |   |   |    ___ ___|</h1>
+<h1>|   |___|    ___ ___ ___|   |    ___|        ___|   |   |   |___ ___|___ ___    |</h1>
+<h1>|   |    ___|    ___ ___ ___|   |___ ___|___    |___    |___ ___ ___ ___ ___ ___|</h1>
+<h1>|___ ___|    ___ ___    |   |___    |       |___    |___    |___ ___     ___    |</h1>
+<h1>|       |___ ___    |   |___ ___ ___ ___|___    |    ___|___ ___ ___ ___|    ___|</h1>
+<h1>|   |   |    ___ ___|___ ___    |___        |   |   |    ___ ___ ___    |___    |</h1>
+<h1>|   |   |   |___         ___|___    |___|___    |   |___    |    ___|___    |   |</h1>
+<h1>|   |   |___    |   |___ ___    |   |       |    ___|    ___|    ___    |___ ___|</h1>
+<h1>|   |   |    ___|___ ___    |   |   |   |   |___|    ___|   |    ___|       |   |</h1>
+<h1>|   |___|___ ___    |___ ___|   |___ ___|   |    ___|___ ___ ___|    ___|   |   |</h1>
+<h1>|        ___ ___|___ ___     ___ ___|    ___|   |    ___ ___    |   |   |___    |</h1>
+<h1>|   |   |    ___ ___    |   |    ___ ___|    ___|___    |   |   |   |   |    ___|</h1>
+<h1>|___|___ ___ ___ ___|___ ___|___ ___ ___ ___ ___ ___ ___|___ ___ ___|___ ___ ___ </h1>
+</pre> </div>
+<script>
+  document.addEventListener('keydown', (event) => {
+    var name = event.key;
+    if (name == "ArrowRight" || name == "ArrowDown" || name == "ArrowUp" || name == "ArrowLeft") {
+      var xhr = new XMLHttpRequest();
+      xhr.open("POST", '/Labyrinth/game');
+      xhr.setRequestHeader('Content-Type', 'application/json');
+      xhr.send(JSON.stringify({name: name}));
+    }
+  }, false);
+</script>
+<form method="get" action="/Labyrinth/solution">
+    <button class="button button1" type="submit">Solution</button>
+</form>
+</body>
+</html>

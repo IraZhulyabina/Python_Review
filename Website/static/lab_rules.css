@@ -1,0 +1,46 @@
+body {
+  background-image: url("meadow1.jpg");
+  text-align: center;
+}
+h1 {
+  color: midnightblue;
+  font-size: 500%;
+}
+div {
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 550px;
+  height: 300px;
+  border-radius: 15px;
+  background-color: midnightblue;
+  color: blanchedalmond;
+  solid-color: midnightblue;
+  font-size: 150%;
+  box-shadow: 0 12px 10px 0 rgba(0,0,0,0.5), 0 6px 4px 0 rgba(0,0,0,0.3);
+}
+.dt1 {
+  font-size: 150%;
+}
+dt {
+  font-size: 125%;
+}
+
+button {
+  background-color: midnightblue;
+  color: blanchedalmond;
+  border: none;
+  display: inline-block;
+  font-size: 28px;
+  padding: 15px 38px;
+  box-shadow: 0 12px 10px 0 rgba(0,0,0,0.5), 0 6px 4px 0 rgba(0,0,0,0.3);
+  border-radius: 15px;
+  position: absolute;
+  right: 30px;
+  bottom: 30px;
+}
+button:hover {
+  background-color: blanchedalmond;
+  color: midnightblue;
+}
