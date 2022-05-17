@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Labyrinth</title>
+    <link rel="stylesheet" href="../static/lab_start.css">
+</head>
+<body>
+<br>
+<br>
+<br>
+<br>
+<form method="post" action="/Labyrinth/start">
+    <p><b>Enter width:</b></p>
+    <p><label>
+        <input type="number" name="width" multiple>
+    </label></p>
+    <p><b>Enter height:</b></p>
+    <p><label>
+        <input type="number" name="height" multiple>
+    </label></p>
+    <p><b>Choose generation type</b></p>
+    <p><label>
+        <select name="type">
+            <option></option>>
+            <option value="minimal_spanning_tree">Prim's algorithm</option>
+            <option value="backtracking">DFS</option>
+        </select>
+    </label></p>
+    <button class="button button1" type="submit">Submit</button>
+</form>
+</body>
+</html>
